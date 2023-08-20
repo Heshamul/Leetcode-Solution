@@ -117,7 +117,7 @@ class Solution
         pair<bool,int>ans;
         if(op1 && op2 && curr){
             ans.first=true;
-            ans.second=2*root->data;
+            ans.second=root->data+left.second+right.second;
         }
         else{
             ans.first=false;

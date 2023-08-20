@@ -109,8 +109,8 @@ class Solution{
             pair<bool,int>p=make_pair(true,0);
             return p;
         }
-        pair<int,int>left=isbal(root->left);
-        pair<int,int>right=isbal(root->right);
+        pair<bool,int>left=isbal(root->left);
+        pair<bool,int>right=isbal(root->right);
         
         bool op1=left.first;
         bool op2=right.first;

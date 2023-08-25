@@ -44,52 +44,41 @@ class Solution
 {
     public:
      //Function to find first node if the linked list has a loop.
-    Node* floydDetectLoop(Node* head) {
-
-    if(head == NULL)
+     Node* detect(Node* head){
+         if(head==NULL)
+            return NULL;
+        Node* slow=head;
+        Node* fast=head;
+        while(fast!=NULL && fast->next!=NULL){
+            fast=fast->next;
+            if(fast!=NULL){
+                fast=fast->next;
+            }
+            slow=slow->next;
+            if(slow==fast){
+                return slow;
+        }
+            
+        }
         return NULL;
-
-    Node* slow = head;
-    Node* fast = head;
-
-    while(slow != NULL && fast !=NULL) {
-        
-        fast = fast -> next;
-        if(fast != NULL) {
-            fast = fast -> next;
-        }
-
-        slow = slow -> next;
-
-        if(slow == fast) {
-            return slow;
-        }
-    }
-
-    return NULL;
-
-}
+     }
     int findFirstNode(Node* head)
     {
         // your code here
-        if(head == NULL) 
-        return -1;
-
-    Node* intersection = floydDetectLoop(head);
-    
-    if(intersection == NULL)
-        return -1;
-    
-    Node* slow = head;
-
-    while(slow != intersection) {
-        slow = slow -> next;
-        intersection = intersection -> next;
-    }  
-
-    return slow->data;
-
-}
+        if(head==NULL){
+            return -1;
+        }
+        Node* loop=detect(head);
+        if(loop==NULL){
+            return -1;
+        }
+        Node* slow=head;
+        while(slow!=loop){
+            slow=slow->next;
+            loop=loop->next;
+        }
+        return slow->data;
+    }
 };
 
 //{ Driver Code Starts.

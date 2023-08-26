@@ -11,18 +11,21 @@ public:
 	
 	
 	int isPalindrome(string s)
-	{   int n=s.length();
-	    int low=0;
-	    int high=n-1;
-	    while(low<high){
-	        if(s[low]!=s[high]){
-	        return 0;
-	    }
-	     low++;
-	   high--;
-	    
-	}
-	return 1;
+	{
+	    // Your code goes here
+	    int n=s.length();
+	   int low=0;
+	   int high=n-1;
+	   
+	   while(low<high){
+	       if(s[low]!=s[high]){
+	           return false;
+	       }
+	       low++;
+	       high--;
+	   }
+	   return true;
+	   
 	}
 
 };
